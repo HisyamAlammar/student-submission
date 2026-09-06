@@ -6,7 +6,7 @@
 |---|---|
 | **Nama** | Abyan Hisyam |
 | **Email** | abyanhisyamm@gmail.com |
-| **Id Dicoding** | [ISI ID DICODING ANDA] |
+| **Id Dicoding** | Abyan Hisyam Al'ammar |
 
 ---
 
@@ -237,7 +237,7 @@ Aplikasi terbuka otomatis di browser pada <http://localhost:8501>.
 
 ### Link prototype (Streamlit Community Cloud)
 
-> **Link aplikasi:** `<ISI DENGAN URL STREAMLIT CLOUD ANDA>`
+> **Link aplikasi:** <https://kiiw7g9exqwihkcbzg97xp.streamlit.app/>
 
 Langkah *deployment*:
 
