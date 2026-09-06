@@ -1,0 +1,15 @@
+# Dependensi prototype Streamlit (app.py)
+#
+# scikit-learn DIPIN PERSIS pada versi saat kedua model checkpoint dilatih,
+# karena model/model_dropout.joblib menyimpan objek Pipeline scikit-learn.
+scikit-learn==1.7.2
+streamlit==1.63.0
+
+# numpy/scipy/pandas sengaja hanya diberi batas minimum, tidak dipin persis.
+# Streamlit Community Cloud dapat memakai Python 3.12/3.13/3.14, dan pin yang
+# terlalu ketat membuat pip gagal menemukan wheel lalu mencoba build dari source
+# (gejalanya: deployment menggantung di "Preparing metadata (pyproject.toml)").
+numpy>=1.26
+scipy>=1.13
+pandas>=2.2
+joblib>=1.4

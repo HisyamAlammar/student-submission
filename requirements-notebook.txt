@@ -1,0 +1,7 @@
+# Dependensi tambahan untuk menjalankan ulang notebook.ipynb.
+# Batas minimum agar pip selalu menemukan wheel untuk versi Python yang dipakai.
+-r requirements.txt
+matplotlib>=3.8
+seaborn>=0.13
+jupyter>=1.0
+notebook>=7.0

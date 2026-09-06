@@ -1,0 +1,36 @@
+# Stack Business Dashboard - Jaya Jaya Institut (Abyan Hisyam)
+# Jalankan: docker compose up -d
+#
+# - postgres : basis data mahasiswa, otomatis di-seed dari dashboard/mahasiswa_dashboard.csv
+# - metabase : aplikasi dashboard; memakai metabase.db.mv.db yang disertakan pada
+#              submission ini, sehingga dashboard langsung tersedia setelah container hidup.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: jjinstitut-postgres
+    environment:
+      POSTGRES_DB: jjinstitut
+      POSTGRES_USER: analitik
+      POSTGRES_PASSWORD: analitik2024
+    ports:
+      - "5434:5432"
+    volumes:
+      - ./dashboard:/seed:ro
+      - ./dashboard/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U analitik -d jjinstitut"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  metabase:
+    image: metabase/metabase:v0.50.26
+    container_name: jjinstitut-metabase
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./metabase-data:/metabase.db
